@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      id="pmi-meta-description"
+      name="description"
+      content="Prime Music Institute — Professional music tuition in Epping, NSW since 2017."
+    />
+    <title>Prime Music Institute</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <div class="header-brand">
+          <a class="logo" href="#top" aria-label="Prime Music Institute home">
+            <img
+              class="logo-img"
+              src="assets/images/logo.png"
+              alt=""
+              width="300"
+              height="68"
+              decoding="async"
+            />
+          </a>
+          <img
+            class="logo-wordmark"
+            src="assets/images/logo-wordmark.png"
+            alt="Prime Music Institute — Unlock your musical genius"
+            width="360"
+            height="80"
+            decoding="async"
+          />
+        </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#faculty">Faculty</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow reveal" id="pmi-hero-eyebrow">Since 2017</p>
+          <h1 class="hero-title reveal reveal-delay-1">
+            <span id="pmi-hero-title-before">Prime Music</span><span class="hero-title-space"> </span><span class="accent" id="pmi-hero-title-accent">Institute</span>
+          </h1>
+          <p class="hero-tagline reveal reveal-delay-2" id="pmi-hero-tagline">
+            Unlock your musical genius.
+          </p>
+          <p class="hero-instruments reveal reveal-delay-2" id="pmi-hero-instruments">
+            Violin · Viola · Cello · Piano · Flute · Clarinet · Oboe
+          </p>
+          <p class="hero-lead reveal reveal-delay-3" id="pmi-hero-lead">
+            Professional music education for all ages.
+          </p>
+          <div class="hero-actions reveal reveal-delay-4">
+            <a class="btn btn-primary" href="#contact">Enquire</a>
+            <a class="btn btn-ghost" href="#programs">Programs</a>
+          </div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">
+          <span>Scroll</span>
+          <span class="hero-scroll-line"></span>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="container narrow">
+          <p class="section-label reveal">About</p>
+          <h2 class="section-title reveal">
+            <span id="pmi-about-title-before">Nurturing musical growth through</span><br />
+            <span class="accent-soft" id="pmi-about-title-accent">creativity &amp; excellence</span
+            ><span id="pmi-about-title-after"></span>
+          </h2>
+          <p class="section-text reveal" id="pmi-about-body">
+            Prime Music Institute has served students in Epping and surrounding areas since 2017.
+          </p>
+          <ul class="stats reveal">
+            <li>
+              <strong class="stat-num" id="pmi-stat-0-value">2017</strong>
+              <span class="stat-label" id="pmi-stat-0-label">Established — Epping, NSW</span>
+            </li>
+            <li>
+              <strong class="stat-num" id="pmi-stat-1-value">All ages</strong>
+              <span class="stat-label" id="pmi-stat-1-label">Professional music education</span>
+            </li>
+            <li>
+              <strong class="stat-num" id="pmi-stat-2-value">1:1 &amp; ensemble</strong>
+              <span class="stat-label" id="pmi-stat-2-label">Flexible lesson formats</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section programs" id="programs">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="section-label">Programs</p>
+            <h2 class="section-title">What we teach</h2>
+            <p class="section-intro" id="pmi-programs-intro">
+              Tuition across strings, piano, and woodwinds — with flexible individual and ensemble options.
+            </p>
+          </div>
+          <div class="program-grid">
+            <article class="program-card reveal">
+              <img class="program-image" src="assets/images/strings.jpg" alt="Violin, viola, and cello" loading="lazy" />
+              <div class="program-content">
+                <div class="program-icon" aria-hidden="true">♪</div>
+                <h3 id="pmi-prog-0-title">Strings</h3>
+                <p id="pmi-prog-0-text">
+                  Violin, viola, and cello — technique, tone, and repertoire for every stage.
+                </p>
+              </div>
+            </article>
+            <article class="program-card reveal">
+              <img class="program-image" src="assets/images/piano.jpg" alt="Grand piano" loading="lazy" />
+              <div class="program-content">
+                <div class="program-icon" aria-hidden="true">♫</div>
+                <h3 id="pmi-prog-1-title">Piano</h3>
+                <p id="pmi-prog-1-text">
+                  Classical foundations and expressive performance from first lessons onward.
+                </p>
+              </div>
+            </article>
+            <article class="program-card reveal">
+              <img class="program-image program-image--woodwinds" src="assets/images/woodwinds.jpg" alt="Clarinet close-up" loading="lazy" />
+              <div class="program-content">
+                <div class="program-icon" aria-hidden="true">𝄞</div>
+                <h3 id="pmi-prog-2-title">Woodwinds</h3>
+                <p id="pmi-prog-2-text">
+                  Flute, clarinet, and oboe — breath, embouchure, and confident reading.
+                </p>
+              </div>
+            </article>
+            <article class="program-card reveal">
+              <img class="program-image" src="assets/images/hsc.jpg" alt="Student practicing for music exam" loading="lazy" />
+              <div class="program-content">
+                <div class="program-icon" aria-hidden="true">✦</div>
+                <h3 id="pmi-prog-3-title">HSC Music 2 / Extension</h3>
+                <p id="pmi-prog-3-text">
+                  Focused preparation for HSC Music 2 and Extension with tailored repertoire, performance coaching, and exam strategy.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faculty" id="faculty">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="section-label">Faculty</p>
+            <h2 class="section-title">Faculty</h2>
+            <p class="section-intro" id="pmi-faculty-intro">
+              Led by Director Sooa Chae alongside our teaching faculty — conservatorium-trained musicians dedicated to every student.
+            </p>
+          </div>
+          <div class="faculty-grid">
+            <article class="faculty-card faculty-card--director reveal">
+              <div class="faculty-photo faculty-photo--has-img">
+                <img
+                  src="assets/images/faculty-sooa-chae.png"
+                  alt="Sooa Chae"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                />
+              </div>
+              <p class="faculty-role" id="pmi-fac-0-role">DIRECTOR</p>
+              <h3 id="pmi-fac-0-name">SOOA CHAE</h3>
+              <div class="faculty-bio faculty-bio--rich" id="pmi-fac-0-bio"></div>
+            </article>
+            <article class="faculty-card reveal">
+              <div class="faculty-photo faculty-photo--has-img faculty-photo--t3">
+                <img
+                  src="assets/images/faculty-jay-cho.png"
+                  alt="Jay Cho"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                />
+              </div>
+              <p class="faculty-role" id="pmi-fac-1-role"></p>
+              <h3 id="pmi-fac-1-name">Jay Cho</h3>
+              <div class="faculty-bio faculty-bio--rich" id="pmi-fac-1-bio"></div>
+            </article>
+            <article class="faculty-card reveal">
+              <div class="faculty-photo faculty-photo--has-img faculty-photo--t4">
+                <img
+                  src="assets/images/faculty-3.png"
+                  alt="Faculty member"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                />
+              </div>
+              <p class="faculty-role" id="pmi-fac-2-role"></p>
+              <h3 id="pmi-fac-2-name">Jared Atherton</h3>
+              <p class="faculty-bio" id="pmi-fac-2-bio">
+                Teacher profile will be added shortly.
+              </p>
+            </article>
+            <article class="faculty-card reveal">
+              <div class="faculty-photo faculty-photo--has-img">
+                <img
+                  src="assets/images/faculty-4.png"
+                  alt="Faculty member"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                />
+              </div>
+              <p class="faculty-role" id="pmi-fac-3-role"></p>
+              <h3 id="pmi-fac-3-name">Melanie</h3>
+              <p class="faculty-bio" id="pmi-fac-3-bio">
+                Teacher profile will be added shortly.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy reveal">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Get in touch</h2>
+            <p class="section-text" id="pmi-contact-intro">
+              Call or message us about lessons, levels, and availability at our Epping studio.
+            </p>
+            <address class="contact-details">
+              <p>
+                <span class="detail-label">Address</span>
+                <span id="pmi-contact-address">89a Wyralla Ave, Epping NSW 2121</span>
+              </p>
+              <p>
+                <span class="detail-label">Phone</span>
+                <a id="pmi-contact-phone" href="tel:+61415344297">0415 344 297</a>
+              </p>
+              <p id="pmi-contact-email-row">
+                <span class="detail-label">Email</span>
+                <a id="pmi-contact-email" href="mailto:"></a>
+              </p>
+              <p>
+                <span class="detail-label">Hours</span>
+                <span id="pmi-contact-hours">Enquire for lesson times &amp; studio visits.</span>
+              </p>
+            </address>
+          </div>
+          <form class="contact-form reveal" action="#" method="post">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required placeholder="Your name" />
+            </label>
+            <label class="field">
+              <span>Phone</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="04xx xxx xxx" />
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="4" placeholder="Instrument, age or level, and preferred times…"></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary btn-block">Send</button>
+            <p class="form-note">
+              Demo form — connect to email or a form service to receive submissions.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="#top" aria-label="Prime Music Institute home">
+            <img
+              class="footer-icon"
+              src="assets/images/logo.png"
+              alt=""
+              width="300"
+              height="68"
+              decoding="async"
+            />
+          </a>
+          <img
+            class="footer-wordmark"
+            src="assets/images/logo-wordmark.png"
+            alt="Prime Music Institute — Unlock your musical genius"
+            width="360"
+            height="80"
+            decoding="async"
+          />
+        </div>
+        <p class="footer-copy">
+          © <span id="year"></span> Prime Music Institute. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="site-info.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
