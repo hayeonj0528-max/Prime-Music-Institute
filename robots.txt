@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Common AI / answer-engine crawlers (allow indexing for AEO/GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://hayeonj0528-max.github.io/Prime-Music-Institute/sitemap.xml

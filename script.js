@@ -1,4 +1,119 @@
 (function () {
+  function escapeHtml(str) {
+    return String(str == null ? "" : str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function getInitials(name) {
+    if (!name) return "";
+    var parts = String(name).trim().split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return "";
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+
+  function buildFacultyCard(mem, index) {
+    var card = document.createElement("article");
+    card.className = "faculty-card reveal";
+    if (index === 0) card.classList.add("faculty-card--director");
+
+    var photo = document.createElement("div");
+    photo.className = "faculty-photo";
+    if (mem.image) {
+      photo.classList.add("faculty-photo--has-img");
+      if (mem.imageClass) photo.classList.add(mem.imageClass);
+      var img = document.createElement("img");
+      img.src = mem.image;
+      img.alt = mem.name || "Faculty member";
+      img.width = 600;
+      img.height = 600;
+      img.loading = "lazy";
+      photo.appendChild(img);
+    } else {
+      photo.classList.add("faculty-photo--placeholder");
+      var initials = document.createElement("span");
+      initials.className = "faculty-photo-initials";
+      initials.textContent = getInitials(mem.name);
+      initials.setAttribute("aria-hidden", "true");
+      photo.appendChild(initials);
+    }
+    card.appendChild(photo);
+
+    var role = document.createElement("p");
+    role.className = "faculty-role";
+    if (mem.role) {
+      role.textContent = mem.role;
+    } else {
+      role.innerHTML = "&nbsp;";
+      role.style.visibility = "hidden";
+    }
+    card.appendChild(role);
+
+    var name = document.createElement("h3");
+    name.textContent = mem.name || "";
+    card.appendChild(name);
+
+    var bio = document.createElement("div");
+    bio.className = "faculty-bio faculty-bio--rich";
+
+    if (mem.profile) {
+      var lead = document.createElement("p");
+      lead.className = "faculty-bio-lead";
+      lead.textContent = mem.profile;
+      bio.appendChild(lead);
+    }
+
+    var hasSections = Array.isArray(mem.sections) && mem.sections.length > 0;
+
+    if (hasSections) {
+      var details = document.createElement("details");
+      details.className = "faculty-details";
+
+      var summary = document.createElement("summary");
+      summary.className = "faculty-toggle";
+      summary.innerHTML =
+        '<span class="faculty-toggle-label faculty-toggle-label--more">Read more</span>' +
+        '<span class="faculty-toggle-label faculty-toggle-label--less">Show less</span>' +
+        '<span class="faculty-toggle-icon" aria-hidden="true">\u25BE</span>';
+      details.appendChild(summary);
+
+      var body = document.createElement("div");
+      body.className = "faculty-details-body";
+      mem.sections.forEach(function (sec) {
+        if (!sec || !sec.title) return;
+        var h4 = document.createElement("h4");
+        h4.className = "faculty-bio-section";
+        h4.textContent = sec.title;
+        body.appendChild(h4);
+        if (Array.isArray(sec.items) && sec.items.length) {
+          var ul = document.createElement("ul");
+          ul.className = "faculty-bio-list";
+          sec.items.forEach(function (it) {
+            var li = document.createElement("li");
+            li.textContent = it;
+            ul.appendChild(li);
+          });
+          body.appendChild(ul);
+        }
+      });
+      details.appendChild(body);
+      bio.appendChild(details);
+    } else if (mem.bioHtml) {
+      bio.innerHTML += mem.bioHtml;
+    } else if (mem.bio) {
+      var p = document.createElement("p");
+      p.textContent = mem.bio;
+      bio.appendChild(p);
+    }
+
+    card.appendChild(bio);
+    return card;
+  }
+
   function applyPmiSite() {
     var S = window.PMI_SITE;
     if (!S) return;
@@ -84,25 +199,11 @@
     if (S.faculty) {
       var fi = document.getElementById("pmi-faculty-intro");
       if (fi && S.faculty.intro != null) fi.textContent = S.faculty.intro;
-      if (S.faculty.members && S.faculty.members.length) {
+      var grid = document.getElementById("pmi-faculty-grid");
+      if (grid && S.faculty.members && S.faculty.members.length) {
+        grid.innerHTML = "";
         S.faculty.members.forEach(function (mem, i) {
-          var n = document.getElementById("pmi-fac-" + i + "-name");
-          var r = document.getElementById("pmi-fac-" + i + "-role");
-          var b = document.getElementById("pmi-fac-" + i + "-bio");
-          if (n && mem.name != null) n.textContent = mem.name;
-          if (r) {
-            if (mem.role != null && mem.role !== "") {
-              r.textContent = mem.role;
-              r.style.visibility = "visible";
-            } else {
-              r.textContent = " ";
-              r.style.visibility = "hidden";
-            }
-          }
-          if (b) {
-            if (mem.bioHtml != null) b.innerHTML = mem.bioHtml;
-            else if (mem.bio != null) b.textContent = mem.bio;
-          }
+          grid.appendChild(buildFacultyCard(mem, i));
         });
       }
     }
@@ -208,11 +309,112 @@
     });
   }
 
-  var form = document.querySelector(".contact-form");
+  var form = document.getElementById("pmi-contact-form") || document.querySelector(".contact-form");
   if (form) {
+    var statusEl = document.getElementById("pmi-contact-status");
+    var submitBtn = document.getElementById("pmi-contact-submit") || form.querySelector('button[type="submit"]');
+
+    function setStatus(message, kind) {
+      if (!statusEl) return;
+      statusEl.textContent = message || "";
+      statusEl.classList.remove("is-success", "is-error", "is-info");
+      if (kind) statusEl.classList.add("is-" + kind);
+    }
+
+    function getContactConfig() {
+      var S = window.PMI_SITE || {};
+      var c = S.contact || {};
+      return {
+        formspreeId: (c.formspreeId || "").trim(),
+        fallbackEmail: (c.formFallbackEmail || c.emailMailto || "").trim(),
+      };
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      alert("This demo form does not send yet — hook up email or a form service to go live.");
+
+      // Honeypot — silently drop bot submissions
+      var honeypot = form.querySelector('input[name="_gotcha"]');
+      if (honeypot && honeypot.value) return;
+
+      var cfg = getContactConfig();
+      var fd = new FormData(form);
+
+      // Basic client-side required-field check (since we use novalidate)
+      var name = (fd.get("name") || "").toString().trim();
+      var email = (fd.get("email") || "").toString().trim();
+      var message = (fd.get("message") || "").toString().trim();
+      if (!name || !email || !message) {
+        setStatus("Please fill in your name, email, and a short message.", "error");
+        return;
+      }
+
+      // Formspree path
+      if (cfg.formspreeId) {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.dataset.originalLabel = submitBtn.dataset.originalLabel || submitBtn.textContent;
+          submitBtn.textContent = "Sending…";
+        }
+        setStatus("Sending your message…", "info");
+
+        fetch("https://formspree.io/f/" + encodeURIComponent(cfg.formspreeId), {
+          method: "POST",
+          body: fd,
+          headers: { Accept: "application/json" },
+        })
+          .then(function (res) {
+            if (res.ok) return res.json().catch(function () { return {}; });
+            return res.json().then(
+              function (data) { throw new Error((data && data.error) || "Submission failed."); },
+              function () { throw new Error("Submission failed. Please try again or call us."); }
+            );
+          })
+          .then(function () {
+            form.reset();
+            setStatus("Thanks! Your message has been sent — we'll be in touch shortly.", "success");
+          })
+          .catch(function (err) {
+            setStatus(
+              (err && err.message) || "Something went wrong. Please try again or call us at " +
+                ((window.PMI_SITE && window.PMI_SITE.contact && window.PMI_SITE.contact.phoneDisplay) || "us") + ".",
+              "error"
+            );
+          })
+          .then(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              if (submitBtn.dataset.originalLabel) submitBtn.textContent = submitBtn.dataset.originalLabel;
+            }
+          });
+        return;
+      }
+
+      // Fallback — open the visitor's mail client with a prefilled message
+      if (cfg.fallbackEmail) {
+        var phone = (fd.get("phone") || "").toString().trim();
+        var subject = "Lesson enquiry from " + name;
+        var bodyLines = [
+          "Name: " + name,
+          "Email: " + email,
+          "Phone: " + (phone || "—"),
+          "",
+          message,
+        ];
+        var mailto =
+          "mailto:" + encodeURIComponent(cfg.fallbackEmail) +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(bodyLines.join("\n"));
+        window.location.href = mailto;
+        setStatus("Opening your mail app — please press Send to finish.", "info");
+        return;
+      }
+
+      // Nothing configured — be honest
+      setStatus(
+        "The contact form isn't connected yet. Please call us or email directly while we set this up.",
+        "error"
+      );
     });
   }
 })();
