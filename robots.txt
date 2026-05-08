@@ -26,4 +26,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://hayeonj0528-max.github.io/Prime-Music-Institute/sitemap.xml
+Sitemap: https://primemusicinstitute.com.au/sitemap.xml
