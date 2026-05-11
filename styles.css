@@ -1008,6 +1008,27 @@ img {
   object-fit: contain;
 }
 
+.footer-social {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.footer-social a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 520px) {
   .footer-icon {
     max-width: min(220px, 52vw);

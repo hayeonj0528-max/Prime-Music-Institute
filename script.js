@@ -236,6 +236,48 @@
       }
       if (hr && S.contact.hours != null) hr.textContent = S.contact.hours;
     }
+
+    var sameAsUrls = [];
+    if (S.social) {
+      var ig = S.social.instagram != null ? String(S.social.instagram).trim() : "";
+      if (ig && /^https:\/\//i.test(ig)) sameAsUrls.push(ig);
+    }
+    var ldPatch = document.getElementById("pmi-ld-sameas");
+    if (ldPatch) ldPatch.remove();
+    if (sameAsUrls.length) {
+      var ld = document.createElement("script");
+      ld.type = "application/ld+json";
+      ld.id = "pmi-ld-sameas";
+      ld.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["MusicSchool", "EducationalOrganization", "LocalBusiness"],
+            "@id": "https://primemusicinstitute.com.au/#organization",
+            sameAs: sameAsUrls
+          }
+        ]
+      });
+      document.head.appendChild(ld);
+    }
+
+    var fs = document.getElementById("pmi-footer-social");
+    if (fs) {
+      fs.innerHTML = "";
+      fs.setAttribute("hidden", "");
+      if (S.social && S.social.instagram) {
+        var igHref = String(S.social.instagram).trim();
+        if (igHref && /^https:\/\//i.test(igHref)) {
+          var a = document.createElement("a");
+          a.href = igHref;
+          a.setAttribute("rel", "me noopener noreferrer");
+          a.target = "_blank";
+          a.textContent = "Instagram";
+          fs.appendChild(a);
+          fs.removeAttribute("hidden");
+        }
+      }
+    }
   }
 
   applyPmiSite();

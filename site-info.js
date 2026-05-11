@@ -283,6 +283,15 @@ window.PMI_SITE = {
     ],
   },
 
+  /**
+   * Official social profile URLs (full https:// links only).
+   * Helps Google connect your website, Maps listing, and Instagram.
+   * Example: "https://www.instagram.com/your_handle/"
+   */
+  social: {
+    instagram: "",
+  },
+
   contact: {
     intro:
       "We’d love to hear from you. Call or send a message to ask about lessons, levels, and availability at our Epping studio.",
