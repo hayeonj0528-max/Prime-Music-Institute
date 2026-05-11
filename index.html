@@ -57,6 +57,16 @@
     <link rel="stylesheet" href="styles.css?v=20260511a" />
   </head>
   <body>
+    <script>
+      (function () {
+        if (location.protocol !== "http:") return;
+        var h = location.hostname;
+        if (h !== "primemusicinstitute.com.au" && h !== "www.primemusicinstitute.com.au") return;
+        location.replace(
+          "https://" + h + location.pathname + location.search + location.hash
+        );
+      })();
+    </script>
     <header class="site-header" id="top">
       <div class="header-inner">
         <div class="header-brand">
