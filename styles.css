@@ -1008,34 +1008,50 @@ img {
   object-fit: contain;
 }
 
-.footer-social {
-  margin: 0;
-  display: flex;
-  align-items: center;
+/* Floating Instagram (bottom-right) */
+
+.instagram-fab-host {
+  position: fixed;
+  right: clamp(1rem, 4vw, 1.5rem);
+  bottom: clamp(1rem, 4vw, 1.5rem);
+  z-index: 100;
 }
 
-.footer-social-link {
+.instagram-fab-host[hidden] {
+  display: none !important;
+}
+
+.instagram-fab-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.25rem;
+  height: 3.25rem;
   border-radius: 50%;
-  color: var(--accent);
-  background: rgba(255, 255, 255, 0.06);
+  color: #f4eedf;
+  background: linear-gradient(145deg, #c4a574 0%, #8b6f4a 100%);
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
   text-decoration: none;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
-.footer-social-link:hover,
-.footer-social-link:focus-visible {
+.instagram-fab-link:hover,
+.instagram-fab-link:focus-visible {
   color: #fff;
-  background: rgba(196, 165, 116, 0.35);
-  transform: scale(1.06);
+  transform: scale(1.07);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  filter: brightness(1.05);
   outline: none;
 }
 
-.footer-social-icon {
+.instagram-fab-icon {
   display: block;
   flex-shrink: 0;
 }
