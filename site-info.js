@@ -289,7 +289,7 @@ window.PMI_SITE = {
    * Example: "https://www.instagram.com/your_handle/"
    */
   social: {
-    instagram: "",
+    instagram: "https://www.instagram.com/primemusicinstitute_sydney/",
   },
 
   contact: {
