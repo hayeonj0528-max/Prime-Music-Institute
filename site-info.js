@@ -125,7 +125,7 @@ window.PMI_SITE = {
             title: "Experience",
             items: [
               "Extensive teaching experience across various levels",
-              "Accompanist for tertiary music students",
+              "Professional accompanist for tertiary music students",
             ],
           },
         ],
@@ -141,7 +141,7 @@ window.PMI_SITE = {
           {
             title: "Education & Certification",
             items: [
-              "Sydney Conservatorium of Music (Current — Bachelor of Music Performance)",
+              "Ramsay Scholar — Bachelor of Arts (Western Civilisation)",
             ],
           },
           {
@@ -157,9 +157,11 @@ window.PMI_SITE = {
           {
             title: "Experience",
             items: [
-              "Concertmaster & Soloist, NSW State Music Camp",
+              "Concertmaster & Soloist of the NSW State Music Camp Orchestra",
+              "Concertmaster for the SSO Young Musicians Workshop Orchestra",
               "Soloist, SSO Young Musicians Workshop",
               "Violinist, Willoughby Symphony Orchestra",
+              "String ensemble director at North Sydney Public School",
             ],
           },
         ],
@@ -175,7 +177,7 @@ window.PMI_SITE = {
           {
             title: "Education & Certification",
             items: [
-              "Bachelor of Psychology and Music, University of Sydney",
+              "Bachelor of Music and Psychology, University of Sydney",
               "AMEB Associate Diploma (Flute & Piano), 2019",
             ],
           },
@@ -210,7 +212,7 @@ window.PMI_SITE = {
           {
             title: "Education & Certification",
             items: [
-              "Bachelor of Music (Performance), Sydney Conservatorium of Music (Current)",
+              "Bachelor of Music (Performance), Sydney Conservatorium of Music",
             ],
           },
           {
@@ -248,7 +250,7 @@ window.PMI_SITE = {
           {
             title: "Education & Certification",
             items: [
-              "Bachelor of Music (In Progress), University of Sydney",
+              "Bachelor of Music, University of Sydney",
               "Sony Music Examination – Classic Grade I (Honor)",
             ],
           },
