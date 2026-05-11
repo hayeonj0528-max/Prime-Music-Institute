@@ -165,43 +165,6 @@ window.PMI_SITE = {
         ],
       },
       {
-        name: "JASMINE YANG",
-        role: "VIOLA · VIOLIN · PIANO TUTOR",
-        image: "",
-        imageClass: "",
-        profile:
-          "Dynamic and engaging tutor with extensive performance experience, passionate about connecting with students through music and building confidence across all levels.",
-        sections: [
-          {
-            title: "Education & Certification",
-            items: [
-              "Bachelor of Music (Performance), Sydney Conservatorium of Music",
-            ],
-          },
-          {
-            title: "Experience",
-            items: [
-              "Private Music Tutor",
-              "Music Tutor, CPS",
-              "Vocal Tutor, Epic School of Music",
-              "Primary Tutor (English, Maths & Music)",
-              "Swimming Instructor",
-            ],
-          },
-          {
-            title: "Performance Experience",
-            items: [
-              "Sydney Youth Orchestra (SYO)",
-              "Symphony Orchestra & Choir, Sydney Conservatorium",
-              "Solo Performances: Parliament, Hospitals, Aged Care Centres",
-              "Church Orchestra & Chorale Performances",
-              "Mozart \u201CMagic Flute\u201D Chorale",
-              "Multiple Solo & Ensemble Performances across Sydney",
-            ],
-          },
-        ],
-      },
-      {
         name: "ALISON",
         role: "FLUTE & PIANO TUTOR",
         image: "assets/images/faculty-alison.png",
@@ -277,7 +240,7 @@ window.PMI_SITE = {
       {
         name: "RHATWO FATINASA PASARIBU",
         role: "VIOLIN & PIANO TUTOR",
-        image: "",
+        image: "assets/images/faculty-rhatwo.png?v=20260511a",
         imageClass: "",
         profile:
           "Classically trained violinist and pianist with strong competition experience, guiding students through structured, expressive, and goal-oriented lessons.",
