@@ -24,3 +24,6 @@ node_modules/
 # Local backups
 *.bak
 *~
+
+# Python venv (local tools)
+.venv-fav/
