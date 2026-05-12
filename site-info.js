@@ -4,7 +4,7 @@
 window.PMI_SITE = {
   meta: {
     description:
-      "Prime Music Institute is a music school in Epping, NSW (since 2017) offering violin, viola, cello, piano, flute, clarinet and oboe lessons, plus HSC Music 2 / Extension preparation with conservatorium-trained teachers.",
+      "Prime Music Institute is a music school at 89a Wyralla Ave, Epping, NSW 2121 (since 2017) offering violin, viola, cello, piano, flute, clarinet and oboe lessons, plus HSC Music 2 / Extension preparation with conservatorium-trained teachers.",
   },
 
   hero: {
@@ -99,7 +99,7 @@ window.PMI_SITE = {
       },
       {
         name: "JAY CHO",
-        role: "PIANO TUTOR",
+        role: "TUTOR",
         image: "assets/images/faculty-jay-cho.png",
         imageClass: "faculty-photo--t3",
         profile:
@@ -132,7 +132,7 @@ window.PMI_SITE = {
       },
       {
         name: "JARED ATHERTON",
-        role: "VIOLIN TUTOR",
+        role: "TUTOR",
         image: "assets/images/faculty-3.png",
         imageClass: "faculty-photo--t4",
         profile:
@@ -167,12 +167,12 @@ window.PMI_SITE = {
         ],
       },
       {
-        name: "ALISON",
-        role: "FLUTE & PIANO TUTOR",
+        name: "ALISON CHANG",
+        role: "TUTOR",
         image: "assets/images/faculty-alison.png",
         imageClass: "",
         profile:
-          "Friendly and patient tutor with a knack for connecting with school-aged students. Alison has spent years guiding kids and teens through their first lessons, AMEB grades and HSC preparation — and is known for keeping students engaged even through the tougher weeks of practice.",
+          "Friendly and patient tutor with a knack for connecting with school-aged students. Alison Chang has spent years guiding kids and teens through their first lessons, AMEB grades and HSC preparation — and is known for keeping students engaged even through the tougher weeks of practice.",
         sections: [
           {
             title: "Education & Certification",
@@ -203,7 +203,7 @@ window.PMI_SITE = {
       },
       {
         name: "KOUROSH NADERY",
-        role: "VIOLA · VIOLIN · CLARINET · GUITAR TUTOR",
+        role: "TUTOR",
         image: "assets/images/faculty-kourosh-nadery.png?v=20260508c",
         imageClass: "",
         profile:
@@ -241,7 +241,7 @@ window.PMI_SITE = {
       },
       {
         name: "RHATWO FATINASA PASARIBU",
-        role: "VIOLIN & PIANO TUTOR",
+        role: "TUTOR",
         image: "assets/images/faculty-rhatwo.png?v=20260511a",
         imageClass: "",
         profile:

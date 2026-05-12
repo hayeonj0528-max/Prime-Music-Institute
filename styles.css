@@ -671,6 +671,10 @@ img {
   color: var(--text);
 }
 
+.faculty-card .faculty-photo + h3 {
+  margin-top: 1.25rem;
+}
+
 .faculty-role {
   margin: 1.25rem 0 0;
   padding: 0 1.25rem;

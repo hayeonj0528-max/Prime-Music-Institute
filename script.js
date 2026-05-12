@@ -43,15 +43,12 @@
     }
     card.appendChild(photo);
 
-    var role = document.createElement("p");
-    role.className = "faculty-role";
     if (mem.role) {
+      var role = document.createElement("p");
+      role.className = "faculty-role";
       role.textContent = mem.role;
-    } else {
-      role.innerHTML = "&nbsp;";
-      role.style.visibility = "hidden";
+      card.appendChild(role);
     }
-    card.appendChild(role);
 
     var name = document.createElement("h3");
     name.textContent = mem.name || "";
