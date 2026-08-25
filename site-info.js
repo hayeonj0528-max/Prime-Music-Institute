@@ -4,7 +4,7 @@
 window.PMI_SITE = {
   meta: {
     description:
-      "Prime Music Institute is a music school at 89a Wyralla Ave, Epping, NSW 2121 (since 2017) offering violin, viola, cello, piano, flute, clarinet and oboe lessons, plus HSC Music 2 / Extension preparation with conservatorium-trained teachers.",
+      "Prime Music Institute is a music school at 89a Wyralla Ave, Epping, NSW 2121 (since 2017) offering violin, viola, cello, piano, flute, clarinet and oboe lessons, plus HSC Music 2 / Extension — led by Founder Sooa Chae (Sydney Conservatorium of Music).",
   },
 
   hero: {
@@ -21,7 +21,7 @@ window.PMI_SITE = {
     titleAccent: "creativity & excellence",
     titleAfter: "",
     body:
-      "Prime Music Institute has been teaching in Epping since 2017. Our students range from young beginners through to teens preparing for HSC and AMEB exams, and plenty of adults coming back to an instrument after years away. We teach strings, piano, and woodwinds. Every teacher here trained at a conservatorium, and we put a lot of thought into matching each student with the right one — usually that's what keeps people learning for the long run.",
+      "Prime Music Institute has been teaching in Epping since 2017. Our students range from young beginners through to teens preparing for HSC and AMEB exams, and plenty of adults coming back to an instrument after years away. We teach strings, piano, and woodwinds. Lessons are led by Founder Sooa Chae, a conservatorium-trained musician with a student-centred teaching approach.",
     stats: [
       { value: "2017", label: "Established — serving Epping, NSW" },
       { value: "All ages", label: "Professional music education" },
@@ -58,7 +58,7 @@ window.PMI_SITE = {
 
   faculty: {
     intro:
-      "Led by Founder Sooa Chae alongside our teaching faculty — conservatorium-trained musicians dedicated to every student.",
+      "Founder Sooa Chae — a conservatorium-trained musician dedicated to every student at Prime Music Institute.",
     members: [
       {
         name: "SOOA CHAE",
@@ -93,191 +93,6 @@ window.PMI_SITE = {
               "1st Violinist, Korean Orchestra",
               "Music Therapy Volunteer Program",
               "Scholarship & Competition Preparation Specialist",
-            ],
-          },
-        ],
-      },
-      {
-        name: "JAY CHO",
-        role: "TUTOR",
-        image: "assets/images/faculty-jay-cho.png",
-        imageClass: "faculty-photo--t3",
-        profile:
-          "Highly accomplished pianist with strong academic and performance background, specialising in advanced technique and musical interpretation.",
-        sections: [
-          {
-            title: "Education & Certification",
-            items: [
-              "Sydney Conservatorium of Music",
-              "Bachelor & Master of Piano Performance",
-              "Scholarship Recipient (2018–2020, 2023–2024)",
-              "AMEB AMusA (Associate in Music)",
-            ],
-          },
-          {
-            title: "Achievements",
-            items: [
-              "HSC Music 2 & Extension – Band 6",
-              "HSC ENCORE Nomination",
-            ],
-          },
-          {
-            title: "Experience",
-            items: [
-              "Extensive teaching experience across various levels",
-              "Professional accompanist for tertiary music students",
-            ],
-          },
-        ],
-      },
-      {
-        name: "JARED ATHERTON",
-        role: "TUTOR",
-        image: "assets/images/faculty-3.png",
-        imageClass: "faculty-photo--t4",
-        profile:
-          "High-achieving violinist with elite academic results and orchestral leadership experience, specialising in performance and exam preparation.",
-        sections: [
-          {
-            title: "Education & Certification",
-            items: [
-              "Ramsay Scholar — Bachelor of Arts (Western Civilisation)",
-            ],
-          },
-          {
-            title: "Achievements",
-            items: [
-              "HSC Music Extension: 49/50",
-              "HSC Music 2: 95/100",
-              "AMEB Certificate of Performance (Violin) – A+",
-              "AMEB AMusA",
-              "Piano Grade 8 – A+",
-            ],
-          },
-          {
-            title: "Experience",
-            items: [
-              "Concertmaster & Soloist of the NSW State Music Camp Orchestra",
-              "Concertmaster for the SSO Young Musicians Workshop Orchestra",
-              "Soloist, SSO Young Musicians Workshop",
-              "Violinist, Willoughby Symphony Orchestra",
-              "String ensemble director at North Sydney Public School",
-            ],
-          },
-        ],
-      },
-      {
-        name: "ALISON CHANG",
-        role: "TUTOR",
-        image: "assets/images/faculty-alison.png",
-        imageClass: "",
-        profile:
-          "Friendly and patient tutor with a knack for connecting with school-aged students. Alison Chang has spent years guiding kids and teens through their first lessons, AMEB grades and HSC preparation — and is known for keeping students engaged even through the tougher weeks of practice.",
-        sections: [
-          {
-            title: "Education & Certification",
-            items: [
-              "Bachelor of Music and Psychology, University of Sydney",
-              "AMEB Associate Diploma (Flute & Piano), 2019",
-            ],
-          },
-          {
-            title: "Achievements",
-            items: [
-              "NSW State Solo Champion (Woodwind U18), 2019 & 2021",
-              "HSC Music 2 & Extension – Band 6",
-              "HSC ENCORE Selection (2022)",
-            ],
-          },
-          {
-            title: "Experience",
-            items: [
-              "5+ years teaching primary and high school students across Sydney",
-              "Private flute and piano tutor — beginner to advanced",
-              "AMEB and HSC Music exam preparation tutor",
-              "Ensemble coaching and group classes for school music programs",
-              "Flautist, Sydney Youth Orchestra",
-            ],
-          },
-        ],
-      },
-      {
-        name: "KOUROSH NADERY",
-        role: "TUTOR",
-        image: "assets/images/faculty-kourosh-nadery.png?v=20260508c",
-        imageClass: "",
-        profile:
-          "Energetic and disciplined instructor with strong leadership background, specialising in performance training and student engagement.",
-        sections: [
-          {
-            title: "Education & Certification",
-            items: [
-              "Bachelor of Music (Performance), Sydney Conservatorium of Music",
-            ],
-          },
-          {
-            title: "Achievements",
-            items: [
-              "Regional First Place – Music Competition (2025)",
-            ],
-          },
-          {
-            title: "Experience",
-            items: [
-              "Violinist, Sydney Youth Philharmonic Orchestra",
-              "Performed at Sydney Opera House, Town Hall & Qudos Bank Arena",
-              "Concertmaster (2023–2025)",
-              "Performer in NSW School Spectacular (Channel 7 Broadcast)",
-            ],
-          },
-          {
-            title: "Additional Skills",
-            items: [
-              "Multi-instrumentalist: Violin, Viola, Piano, Clarinet, Guitar",
-              "Working With Children Check (Valid)",
-            ],
-          },
-        ],
-      },
-      {
-        name: "RHATWO FATINASA PASARIBU",
-        role: "TUTOR",
-        image: "assets/images/faculty-rhatwo.png?v=20260511a",
-        imageClass: "",
-        profile:
-          "Classically trained violinist and pianist with strong competition experience, guiding students through structured, expressive, and goal-oriented lessons.",
-        sections: [
-          {
-            title: "Education & Certification",
-            items: [
-              "Bachelor of Music, University of Sydney",
-              "Sony Music Examination – Classic Grade I (Honor)",
-            ],
-          },
-          {
-            title: "Achievements",
-            items: [
-              "2nd Prize – National Senior Violin Competition (2018)",
-              "2nd Prize – Perfect Tone National Music Violin Competition (2019)",
-              "Solo Piano Performer – Indonesia Young Musician Performance Closing Concert (2019)",
-              "2nd Place – SURFEST Violin Competition (2020)",
-              "BIM TS 2 Merit-Based Scholarship Recipient (2022–Present)",
-            ],
-          },
-          {
-            title: "Experience",
-            items: [
-              "Private Violin & Piano Instructor — one-to-one lesson planning and exam preparation",
-              "Ensemble Coach & Freelance Accompanist",
-              "Student recital and performance coaching",
-            ],
-          },
-          {
-            title: "Additional Skills",
-            items: [
-              "Sight-reading, aural training, and music theory",
-              "Ensemble coaching and accompaniment",
-              "Languages: English (IELTS 7), Indonesian (Native)",
             ],
           },
         ],

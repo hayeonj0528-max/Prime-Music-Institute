@@ -596,6 +596,12 @@ img {
   }
 }
 
+.faculty-grid:has(.faculty-card:only-child) {
+  grid-template-columns: 1fr;
+  max-width: 24rem;
+  margin-inline: auto;
+}
+
 .faculty-card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
