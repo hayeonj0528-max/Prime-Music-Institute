@@ -576,6 +576,139 @@ img {
   font-weight: 300;
 }
 
+/* Founder profile */
+
+.founder {
+  background: linear-gradient(180deg, #f8f9fb 0%, #ffffff 50%, #f8f9fb 100%);
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: none;
+}
+
+.profile-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: visible;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.profile-card--horizontal:hover {
+  border-color: rgba(196, 165, 116, 0.35);
+  box-shadow: 0 12px 36px rgba(24, 38, 67, 0.08);
+}
+
+.profile-card-inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  align-items: start;
+  padding: clamp(1.35rem, 3vw, 2.25rem);
+}
+
+.profile-card-media .profile-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0;
+  background: #eceef2;
+}
+
+.profile-photo--has-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.profile-card-content .profile-role {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.profile-card-content h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  padding: 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.profile-card-content .profile-bio {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.profile-bio-lead {
+  margin: 0 0 1.35rem;
+  font-size: clamp(1.02rem, 1.6vw, 1.12rem);
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+.profile-bio-section {
+  margin: 1.35rem 0 0.15rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.profile-card-content .profile-bio-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.profile-bio-list {
+  margin: 0.55rem 0 0;
+  padding: 0 0 0 1.15rem;
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.profile-bio-list > li {
+  margin-bottom: 0.45rem;
+}
+
+@media (max-width: 720px) {
+  .profile-card-inner {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    padding: 1.25rem;
+  }
+
+  .profile-card-media {
+    max-width: 280px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
 /* Contact */
 
 .contact {

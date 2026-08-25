@@ -8,6 +8,93 @@
       .replace(/'/g, "&#39;");
   }
 
+  function appendProfileSections(container, sections) {
+    if (!Array.isArray(sections) || !sections.length) return;
+    sections.forEach(function (sec) {
+      if (!sec || !sec.title) return;
+      var h4 = document.createElement("h4");
+      h4.className = "profile-bio-section";
+      h4.textContent = sec.title;
+      container.appendChild(h4);
+      if (Array.isArray(sec.items) && sec.items.length) {
+        var ul = document.createElement("ul");
+        ul.className = "profile-bio-list";
+        sec.items.forEach(function (it) {
+          var li = document.createElement("li");
+          li.textContent = it;
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      }
+    });
+  }
+
+  function buildFounderProfile(mem) {
+    var card = document.createElement("article");
+    card.className = "profile-card profile-card--horizontal reveal";
+
+    var inner = document.createElement("div");
+    inner.className = "profile-card-inner";
+
+    var media = document.createElement("div");
+    media.className = "profile-card-media";
+
+    var photo = document.createElement("div");
+    photo.className = "profile-photo";
+    if (mem.image) {
+      photo.classList.add("profile-photo--has-img");
+      if (mem.imageClass) photo.classList.add(mem.imageClass);
+      var img = document.createElement("img");
+      img.src = mem.image;
+      img.alt = mem.name ? String(mem.name).replace(/\s+/g, " ") : "Founder";
+      img.width = 600;
+      img.height = 600;
+      img.loading = "lazy";
+      photo.appendChild(img);
+    }
+    media.appendChild(photo);
+    inner.appendChild(media);
+
+    var content = document.createElement("div");
+    content.className = "profile-card-content";
+
+    if (mem.role) {
+      var role = document.createElement("p");
+      role.className = "profile-role";
+      role.textContent = mem.role;
+      content.appendChild(role);
+    }
+
+    var name = document.createElement("h3");
+    name.textContent = mem.name || "";
+    content.appendChild(name);
+
+    var bio = document.createElement("div");
+    bio.className = "profile-bio";
+
+    if (mem.profile) {
+      var lead = document.createElement("p");
+      lead.className = "profile-bio-lead";
+      lead.textContent = mem.profile;
+      bio.appendChild(lead);
+    }
+
+    if (Array.isArray(mem.sections) && mem.sections.length) {
+      appendProfileSections(bio, mem.sections);
+    } else if (mem.bioHtml) {
+      bio.innerHTML += mem.bioHtml;
+    } else if (mem.bio) {
+      var p = document.createElement("p");
+      p.textContent = mem.bio;
+      bio.appendChild(p);
+    }
+
+    content.appendChild(bio);
+    inner.appendChild(content);
+    card.appendChild(inner);
+    return card;
+  }
+
   function buildInstagramFabLink(href) {
     var a = document.createElement("a");
     a.href = href;
@@ -112,6 +199,16 @@
           var p = document.getElementById("pmi-prog-" + i + "-text");
           if (t && item.title != null) t.textContent = item.title;
           if (p && item.text != null) p.textContent = item.text;
+        });
+      }
+    }
+
+    if (S.founder) {
+      var grid = document.getElementById("pmi-founder-grid");
+      if (grid && S.founder.members && S.founder.members.length) {
+        grid.innerHTML = "";
+        S.founder.members.forEach(function (mem) {
+          grid.appendChild(buildFounderProfile(mem));
         });
       }
     }
