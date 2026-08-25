@@ -8,109 +8,6 @@
       .replace(/'/g, "&#39;");
   }
 
-  function getInitials(name) {
-    if (!name) return "";
-    var parts = String(name).trim().split(/\s+/).filter(Boolean);
-    if (parts.length === 0) return "";
-    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
-    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-  }
-
-  function appendFacultySections(container, sections) {
-    if (!Array.isArray(sections) || !sections.length) return;
-    sections.forEach(function (sec) {
-      if (!sec || !sec.title) return;
-      var h4 = document.createElement("h4");
-      h4.className = "faculty-bio-section";
-      h4.textContent = sec.title;
-      container.appendChild(h4);
-      if (Array.isArray(sec.items) && sec.items.length) {
-        var ul = document.createElement("ul");
-        ul.className = "faculty-bio-list";
-        sec.items.forEach(function (it) {
-          var li = document.createElement("li");
-          li.textContent = it;
-          ul.appendChild(li);
-        });
-        container.appendChild(ul);
-      }
-    });
-  }
-
-  function buildFacultyCard(mem, index) {
-    var card = document.createElement("article");
-    card.className = "faculty-card faculty-card--profile reveal";
-    if (index === 0) card.classList.add("faculty-card--director");
-
-    var inner = document.createElement("div");
-    inner.className = "faculty-card-inner";
-
-    var media = document.createElement("div");
-    media.className = "faculty-card-media";
-
-    var photo = document.createElement("div");
-    photo.className = "faculty-photo";
-    if (mem.image) {
-      photo.classList.add("faculty-photo--has-img");
-      if (mem.imageClass) photo.classList.add(mem.imageClass);
-      var img = document.createElement("img");
-      img.src = mem.image;
-      img.alt = mem.name || "Faculty member";
-      img.width = 600;
-      img.height = 600;
-      img.loading = "lazy";
-      photo.appendChild(img);
-    } else {
-      photo.classList.add("faculty-photo--placeholder");
-      var initials = document.createElement("span");
-      initials.className = "faculty-photo-initials";
-      initials.textContent = getInitials(mem.name);
-      initials.setAttribute("aria-hidden", "true");
-      photo.appendChild(initials);
-    }
-    media.appendChild(photo);
-    inner.appendChild(media);
-
-    var content = document.createElement("div");
-    content.className = "faculty-card-content";
-
-    if (mem.role) {
-      var role = document.createElement("p");
-      role.className = "faculty-role";
-      role.textContent = mem.role;
-      content.appendChild(role);
-    }
-
-    var name = document.createElement("h3");
-    name.textContent = mem.name || "";
-    content.appendChild(name);
-
-    var bio = document.createElement("div");
-    bio.className = "faculty-bio faculty-bio--rich";
-
-    if (mem.profile) {
-      var lead = document.createElement("p");
-      lead.className = "faculty-bio-lead";
-      lead.textContent = mem.profile;
-      bio.appendChild(lead);
-    }
-
-    if (Array.isArray(mem.sections) && mem.sections.length) {
-      appendFacultySections(bio, mem.sections);
-    } else if (mem.bioHtml) {
-      bio.innerHTML += mem.bioHtml;
-    } else if (mem.bio) {
-      var p = document.createElement("p");
-      p.textContent = mem.bio;
-      bio.appendChild(p);
-    }
-
-    content.appendChild(bio);
-    inner.appendChild(content);
-    card.appendChild(inner);
-    return card;
-  }
-
   function buildInstagramFabLink(href) {
     var a = document.createElement("a");
     a.href = href;
@@ -215,26 +112,6 @@
           var p = document.getElementById("pmi-prog-" + i + "-text");
           if (t && item.title != null) t.textContent = item.title;
           if (p && item.text != null) p.textContent = item.text;
-        });
-      }
-    }
-
-    if (S.faculty) {
-      var fi = document.getElementById("pmi-faculty-intro");
-      if (fi) {
-        if (S.faculty.intro) {
-          fi.textContent = S.faculty.intro;
-          fi.hidden = false;
-        } else {
-          fi.textContent = "";
-          fi.hidden = true;
-        }
-      }
-      var grid = document.getElementById("pmi-faculty-grid");
-      if (grid && S.faculty.members && S.faculty.members.length) {
-        grid.innerHTML = "";
-        S.faculty.members.forEach(function (mem, i) {
-          grid.appendChild(buildFacultyCard(mem, i));
         });
       }
     }

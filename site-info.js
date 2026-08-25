@@ -56,49 +56,6 @@ window.PMI_SITE = {
     ],
   },
 
-  faculty: {
-    intro: "",
-    members: [
-      {
-        name: "SOOA CHAE",
-        role: "FOUNDER",
-        image: "assets/images/faculty-sooa-chae.png",
-        imageClass: "",
-        profile:
-          "Founder of Prime Music Institute, combining professional performance expertise with a student-centred teaching philosophy to nurture confident and expressive musicians.",
-        sections: [
-          {
-            title: "Education & Certification",
-            items: [
-              "Sydney Conservatorium of Music – Piano Performance Scholarship",
-              "Studied under SunYi (Associate Concertmaster, Sydney Symphony Orchestra)",
-            ],
-          },
-          {
-            title: "Achievements",
-            items: [
-              "Gold Prize & Special Award – Piano Division",
-              "Grand Prize – Strings Division (Violin)",
-              "Multiple Competition Awards (Violin & Piano)",
-            ],
-          },
-          {
-            title: "Experience",
-            items: [
-              "Founder, Prime Music Institute",
-              "Head Violin Teacher, SunYi Music",
-              "Prac Teacher, James Ruse Agricultural High School",
-              "Conductor, Sydney North Public School Symphonic Band",
-              "1st Violinist, Korean Orchestra",
-              "Music Therapy Volunteer Program",
-              "Scholarship & Competition Preparation Specialist",
-            ],
-          },
-        ],
-      },
-    ],
-  },
-
   /**
    * Official social profile URLs (full https:// links only).
    * Helps Google connect your website, Maps listing, and Instagram.
