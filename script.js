@@ -16,10 +16,37 @@
     return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   }
 
+  function appendFacultySections(container, sections) {
+    if (!Array.isArray(sections) || !sections.length) return;
+    sections.forEach(function (sec) {
+      if (!sec || !sec.title) return;
+      var h4 = document.createElement("h4");
+      h4.className = "faculty-bio-section";
+      h4.textContent = sec.title;
+      container.appendChild(h4);
+      if (Array.isArray(sec.items) && sec.items.length) {
+        var ul = document.createElement("ul");
+        ul.className = "faculty-bio-list";
+        sec.items.forEach(function (it) {
+          var li = document.createElement("li");
+          li.textContent = it;
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      }
+    });
+  }
+
   function buildFacultyCard(mem, index) {
     var card = document.createElement("article");
-    card.className = "faculty-card reveal";
+    card.className = "faculty-card faculty-card--profile reveal";
     if (index === 0) card.classList.add("faculty-card--director");
+
+    var inner = document.createElement("div");
+    inner.className = "faculty-card-inner";
+
+    var media = document.createElement("div");
+    media.className = "faculty-card-media";
 
     var photo = document.createElement("div");
     photo.className = "faculty-photo";
@@ -41,18 +68,22 @@
       initials.setAttribute("aria-hidden", "true");
       photo.appendChild(initials);
     }
-    card.appendChild(photo);
+    media.appendChild(photo);
+    inner.appendChild(media);
+
+    var content = document.createElement("div");
+    content.className = "faculty-card-content";
 
     if (mem.role) {
       var role = document.createElement("p");
       role.className = "faculty-role";
       role.textContent = mem.role;
-      card.appendChild(role);
+      content.appendChild(role);
     }
 
     var name = document.createElement("h3");
     name.textContent = mem.name || "";
-    card.appendChild(name);
+    content.appendChild(name);
 
     var bio = document.createElement("div");
     bio.className = "faculty-bio faculty-bio--rich";
@@ -64,41 +95,8 @@
       bio.appendChild(lead);
     }
 
-    var hasSections = Array.isArray(mem.sections) && mem.sections.length > 0;
-
-    if (hasSections) {
-      var details = document.createElement("details");
-      details.className = "faculty-details";
-
-      var summary = document.createElement("summary");
-      summary.className = "faculty-toggle";
-      summary.innerHTML =
-        '<span class="faculty-toggle-label faculty-toggle-label--more">Read more</span>' +
-        '<span class="faculty-toggle-label faculty-toggle-label--less">Show less</span>' +
-        '<span class="faculty-toggle-icon" aria-hidden="true">\u25BE</span>';
-      details.appendChild(summary);
-
-      var body = document.createElement("div");
-      body.className = "faculty-details-body";
-      mem.sections.forEach(function (sec) {
-        if (!sec || !sec.title) return;
-        var h4 = document.createElement("h4");
-        h4.className = "faculty-bio-section";
-        h4.textContent = sec.title;
-        body.appendChild(h4);
-        if (Array.isArray(sec.items) && sec.items.length) {
-          var ul = document.createElement("ul");
-          ul.className = "faculty-bio-list";
-          sec.items.forEach(function (it) {
-            var li = document.createElement("li");
-            li.textContent = it;
-            ul.appendChild(li);
-          });
-          body.appendChild(ul);
-        }
-      });
-      details.appendChild(body);
-      bio.appendChild(details);
+    if (Array.isArray(mem.sections) && mem.sections.length) {
+      appendFacultySections(bio, mem.sections);
     } else if (mem.bioHtml) {
       bio.innerHTML += mem.bioHtml;
     } else if (mem.bio) {
@@ -107,7 +105,9 @@
       bio.appendChild(p);
     }
 
-    card.appendChild(bio);
+    content.appendChild(bio);
+    inner.appendChild(content);
+    card.appendChild(inner);
     return card;
   }
 
@@ -221,7 +221,15 @@
 
     if (S.faculty) {
       var fi = document.getElementById("pmi-faculty-intro");
-      if (fi && S.faculty.intro != null) fi.textContent = S.faculty.intro;
+      if (fi) {
+        if (S.faculty.intro) {
+          fi.textContent = S.faculty.intro;
+          fi.hidden = false;
+        } else {
+          fi.textContent = "";
+          fi.hidden = true;
+        }
+      }
       var grid = document.getElementById("pmi-faculty-grid");
       if (grid && S.faculty.members && S.faculty.members.length) {
         grid.innerHTML = "";

@@ -588,18 +588,17 @@ img {
   gap: 1.5rem;
 }
 
+.faculty-grid:has(.faculty-card--profile) {
+  grid-template-columns: 1fr;
+  max-width: none;
+}
+
 @media (max-width: 900px) {
-  .faculty-grid {
+  .faculty-grid:not(:has(.faculty-card--profile)) {
     grid-template-columns: 1fr;
     max-width: 24rem;
     margin-inline: auto;
   }
-}
-
-.faculty-grid:has(.faculty-card:only-child) {
-  grid-template-columns: 1fr;
-  max-width: 24rem;
-  margin-inline: auto;
 }
 
 .faculty-card {
@@ -610,7 +609,100 @@ img {
   transition: border-color 0.25s, box-shadow 0.25s;
 }
 
-.faculty-card:hover {
+.faculty-card--profile {
+  overflow: visible;
+}
+
+.faculty-card--profile:hover {
+  border-color: rgba(196, 165, 116, 0.35);
+  box-shadow: 0 12px 36px rgba(24, 38, 67, 0.08);
+}
+
+.faculty-card-inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  align-items: start;
+  padding: clamp(1.35rem, 3vw, 2.25rem);
+}
+
+.faculty-card-media .faculty-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.faculty-card-content .faculty-role {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.faculty-card-content h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  padding: 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.faculty-card-content .faculty-bio {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.faculty-card-content .faculty-bio-lead {
+  margin: 0 0 1.35rem;
+  font-size: clamp(1.02rem, 1.6vw, 1.12rem);
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+.faculty-card-content .faculty-bio-section {
+  margin: 1.35rem 0 0.15rem;
+  padding-top: 1.1rem;
+}
+
+.faculty-card-content .faculty-bio-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.faculty-card-content .faculty-bio-list {
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+@media (max-width: 720px) {
+  .faculty-card-inner {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    padding: 1.25rem;
+  }
+
+  .faculty-card-media {
+    max-width: 280px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+.faculty-card:not(.faculty-card--profile):hover {
   border-color: rgba(196, 165, 116, 0.25);
 }
 
@@ -666,52 +758,6 @@ img {
   opacity: 0.85;
 }
 
-.faculty-card h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3.4vw, 1.75rem);
-  font-weight: 700;
-  margin: 0;
-  padding: 0.45rem 1.25rem 0;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text);
-}
-
-.faculty-card .faculty-photo + h3 {
-  margin-top: 1.25rem;
-}
-
-.faculty-role {
-  margin: 1.25rem 0 0;
-  padding: 0 1.25rem;
-  min-height: 0.95rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.faculty-bio {
-  margin: 0;
-  padding: 0 1.25rem 1.5rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-weight: 300;
-}
-
-.faculty-bio--rich {
-  padding-bottom: 1.65rem;
-  line-height: 1.58;
-}
-
-.faculty-bio-lead {
-  margin: 0 0 0.85rem;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  font-weight: 300;
-}
-
 .faculty-bio-section {
   margin: 1.05rem 0 0.1rem;
   padding-top: 0.85rem;
@@ -764,80 +810,6 @@ img {
 .faculty-bio-highlight strong {
   font-weight: 600;
   color: var(--accent);
-}
-
-/* Collapsible bio sections */
-
-.faculty-details {
-  margin-top: 0.35rem;
-}
-
-.faculty-details > .faculty-details-body {
-  /* Smooth-ish height feel by reserving padding */
-  padding-top: 0.25rem;
-}
-
-.faculty-toggle {
-  list-style: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  user-select: none;
-  transition: color 0.18s ease;
-}
-
-.faculty-toggle::-webkit-details-marker {
-  display: none;
-}
-
-.faculty-toggle:hover,
-.faculty-toggle:focus-visible {
-  color: var(--text);
-  outline: none;
-}
-
-.faculty-toggle:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.faculty-toggle-label--less {
-  display: none;
-}
-
-.faculty-details[open] > .faculty-toggle .faculty-toggle-label--more {
-  display: none;
-}
-
-.faculty-details[open] > .faculty-toggle .faculty-toggle-label--less {
-  display: inline;
-}
-
-.faculty-toggle-icon {
-  display: inline-block;
-  font-size: 0.85rem;
-  line-height: 1;
-  transition: transform 0.2s ease;
-}
-
-.faculty-details[open] > .faculty-toggle .faculty-toggle-icon {
-  transform: rotate(-180deg);
-}
-
-/* The first section inside the body shouldn't draw its own top border
-   (it already has clear separation from the toggle) */
-.faculty-details-body > .faculty-bio-section:first-child {
-  margin-top: 0.35rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--border);
 }
 
 /* Contact */

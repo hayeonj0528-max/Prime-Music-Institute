@@ -57,8 +57,7 @@ window.PMI_SITE = {
   },
 
   faculty: {
-    intro:
-      "Founder Sooa Chae — a conservatorium-trained musician dedicated to every student at Prime Music Institute.",
+    intro: "",
     members: [
       {
         name: "SOOA CHAE",
